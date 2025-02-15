@@ -5,6 +5,8 @@ def download_pinterest_video(url):
     # Путь к папке "download"
     download_folder = "download"
 
+    # download_folder = os.path.join(os.path.expanduser("~"), "Desktop", "download")
+
     # Создаем папку, если она не существует
     if not os.path.exists(download_folder):
         os.makedirs(download_folder)

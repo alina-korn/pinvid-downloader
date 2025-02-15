@@ -1,42 +1,35 @@
-# pinvid-downloader
-📌 A simple Pinterest video downloader using Selenium and requests. The project is in active development
-# Pinterest Video Downloader  
+![WIP](https://img.shields.io/badge/Work_In_Progress-🛠️-yellow)
+# Pinterest Video Downloader
 
-A simple script to download videos from Pinterest using Selenium and requests.  
-🚧 **The project is in active development!** 🚧  
+📥 **Pinterest Video Downloader** — это простой скрипт на Python для скачивания видео с Pinterest. Проект находится в активной разработке, и новые функции будут добавляться со временем.
 
-## Features  
-✅ Extracts video URLs from Pinterest  
-✅ Downloads videos automatically  
-✅ Works in headless mode  
+---
 
-## Requirements  
-- Python 3.x  
-- Google Chrome  
-- ChromeDriver  
-- Selenium  
-- Requests  
+## 🚀 Как использовать
 
-## Installation  
-1. Clone this repository:  
-   ```sh
-   git clone https://github.com/YOUR_GITHUB_USERNAME/pinterest-video-downloader.git
-   cd pinterest-video-downloader
-2. Install dependencies:
-   ```sh
-pip install -r requirements.txt
-   ```sh
-2. Run the script:
-   ```sh
-python main.py
-   ```sh
+1. **Установите зависимости**:  
+   Убедитесь, что у вас установлен Python 3.x, а затем установите необходимую библиотеку:
+   ```
+   pip install yt-dlp
+   ```
 
-## Roadmap
- Extract video URLs  
- Download videos  
- Improve error handling  
- Add a GUI version  
- Support for other platforms 
-  
-## Disclaimer  
-This project is for educational purposes only. Use it responsibly. 
+2. **Запустите скрипт**: 
+Склонируйте репозиторий:
+   ```
+git clone https://github.com/ваш-username/pinterest-video-downloader.git
+```
+Перейдите в папку проекта:  
+```
+cd pinterest-video-downloader 
+```
+Запустите скрипт:
+```
+python pin.py
+```
+
+2. **Введите URL видео**: 
+Когда программа запросит, вставьте ссылку на видео с Pinterest.  
+Видео будет скачано в папку download (она создастся автоматически, если её нет).  
+
+
+
