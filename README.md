@@ -17,15 +17,15 @@
 Склонируйте репозиторий:
    ```
 git clone https://github.com/ваш-username/pinterest-video-downloader.git
-```
+
 Перейдите в папку проекта:  
 ```
 cd pinterest-video-downloader 
-```
+
 Запустите скрипт:
 ```
 python pin.py
-```
+
 
 2. **Введите URL видео**: 
 Когда программа запросит, вставьте ссылку на видео с Pinterest.  
