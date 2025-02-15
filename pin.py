@@ -1,10 +1,18 @@
 from yt_dlp import YoutubeDL
+import os
 
 def download_pinterest_video(url):
+    # Путь к папке "download"
+    download_folder = "download"
+
+    # Создаем папку, если она не существует
+    if not os.path.exists(download_folder):
+        os.makedirs(download_folder)
+
     # Настройки для yt-dlp
     ydl_opts = {
         'format': 'best',  # Скачивает лучшее доступное качество
-        'outtmpl': '%(title)s.%(ext)s',  # Имя файла будет взято из заголовка видео
+        'outtmpl': f'{download_folder}/%(title)s.%(ext)s',  # Сохраняет в папку "download"
         'quiet': True,  # Отключает лишние сообщения в консоли
     }
 
@@ -20,6 +28,6 @@ if __name__ == "__main__":
     try:
         print("Скачивание началось...")
         download_pinterest_video(url)
-        print("Скачивание завершено!")
+        print("Скачивание завершено! Видео сохранено в папку 'download'.")
     except Exception as e:
         print(f"Произошла ошибка: {e}")
