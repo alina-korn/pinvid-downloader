@@ -13,22 +13,23 @@
    pip install yt-dlp
    ```
 
-2. **Запустите скрипт**: 
+2. **Запустите скрипт**:   
    Склонируйте репозиторий:
    ```
    git clone https://github.com/ваш-username/pinterest-video-downloader.git
    ```
 
-Перейдите в папку проекта:  
-```
-cd pinterest-video-downloader 
+   Перейдите в папку проекта:  
+   ```
+   cd pinterest-video-downloader 
+   ```
+   
+   Запустите скрипт:
+   ```
+   python pin.py
+   ```
 
-Запустите скрипт:
-```
-python pin.py
-
-
-2. **Введите URL видео**: 
+3. **Введите URL видео**:   
 Когда программа запросит, вставьте ссылку на видео с Pinterest.  
 Видео будет скачано в папку download (она создастся автоматически, если её нет).  
 
