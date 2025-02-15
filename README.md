@@ -17,7 +17,7 @@
 Склонируйте репозиторий:
    ```
 git clone https://github.com/ваш-username/pinterest-video-downloader.git
-
+   ```
 Перейдите в папку проекта:  
 ```
 cd pinterest-video-downloader 
