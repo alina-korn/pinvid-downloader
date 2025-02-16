@@ -5,15 +5,14 @@ def download_pinterest_video(url):
     # Путь к папке "download"
     download_folder = "download"
 
-    # download_folder = os.path.join(os.path.expanduser("~"), "Desktop", "download")
-
     # Создаем папку, если она не существует
     if not os.path.exists(download_folder):
         os.makedirs(download_folder)
 
     # Настройки для yt-dlp
     ydl_opts = {
-        'format': 'best',  # Скачивает лучшее доступное качество
+        #'format': 'best',  # Скачивает лучшее доступное качество
+        'format': 'mp4',
         'outtmpl': f'{download_folder}/%(title)s.%(ext)s',  # Сохраняет в папку "download"
         'quiet': True,  # Отключает лишние сообщения в консоли
     }
