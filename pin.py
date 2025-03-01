@@ -1,8 +1,8 @@
+import tkinter as tk
 from yt_dlp import YoutubeDL
 import os
 
 def get_unique_filename(filename):
-    """Если файл уже существует, добавляет номер в конец имени файла."""
     base, ext = os.path.splitext(filename)
     counter = 1
     while os.path.exists(filename):
@@ -10,47 +10,53 @@ def get_unique_filename(filename):
         counter += 1
     return filename
 
-def download_pinterest_video(url, download_folder="download"):
-    """Скачивает видео с Pinterest по переданному URL."""
-    # Создаем папку, если она не существует
-    if not os.path.exists(download_folder):
-        os.makedirs(download_folder)
-
-    # Настройки для yt-dlp
+def download_pinterest_video(url):
     ydl_opts = {
-        'format': 'mp4',  # Скачивает видео в MP4
-        'outtmpl': f'{download_folder}/%(title)s.%(ext)s',  # Шаблон имени файла
-        'quiet': True,  # Отключает лишние сообщения в консоли
+        'format': 'mp4',
+        'outtmpl': 'download/%(title)s.%(ext)s',
+        'quiet': True,
     }
-
-    # Скачивание видео
+    if not os.path.exists("download"):
+        os.makedirs("download")
+    
     with YoutubeDL(ydl_opts) as ydl:
         try:
-            info_dict = ydl.extract_info(url, download=True)  # Получаем информацию о видео и скачиваем
-            video_title = info_dict.get('title', 'video')  # Название видео
-            filename = f"{download_folder}/{video_title}.mp4"
-            unique_filename = get_unique_filename(filename)  # Проверяем уникальность имени файла
-
-            # Если имя изменилось, переименовываем файл
+            info = ydl.extract_info(url, download=True)
+            video_title = info.get('title', 'video')
+            filename = f"download/{video_title}.mp4"
+            unique_filename = get_unique_filename(filename)
             if filename != unique_filename and os.path.exists(filename):
                 os.rename(filename, unique_filename)
-
-            print(f"✅ Скачано: {video_title}")
+            result_label.config(text=f"✅ Скачано: {video_title}")
         except Exception as e:
-            print(f"❌ Ошибка при скачивании {url}: {e}")
+            result_label.config(text=f"❌ Ошибка: {e}")
 
-if __name__ == "__main__":
-    # Ввод URL (можно несколько через запятую)
-    urls_input = input("Введите URL видео с Pinterest (через запятую для нескольких): ")
-    urls = [url.strip() for url in urls_input.split(',')]
-
-    print("📥 Начало скачивания...")
-    
-    for url in urls:
+def start_download():
+    url = url_entry.get()
+    if url:
         download_pinterest_video(url)
+    else:
+        result_label.config(text="Введите URL!")
 
-    print("✅ Все видео загружены! Смотрите в папке 'download'.")
+# Создание окна
+root = tk.Tk()
+root.title("Pinterest Video Downloader")
+root.geometry("400x200")
 
+# Элементы интерфейса
+url_label = tk.Label(root, text="Введите URL видео:")
+url_label.pack(pady=10)
+
+url_entry = tk.Entry(root, width=50)
+url_entry.pack(pady=5)
+
+download_button = tk.Button(root, text="Скачать", command=start_download)
+download_button.pack(pady=10)
+
+result_label = tk.Label(root, text="")
+result_label.pack(pady=10)
+
+root.mainloop()
 
 
 
