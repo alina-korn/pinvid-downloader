@@ -64,7 +64,7 @@ class TestPinterestDownloader(unittest.TestCase):
         mock_instance.extract_info.return_value = {'title': 'test_video'}
         mock_ydl.return_value.__enter__.return_value = mock_instance
 
-        # Вызов функции
+        # Вызов функции и проверка
         download_pinterest_video("https://www.pinterest.com/pin/12345/")
         
         # Проверка, что файл создан (в мок-режиме проверяем только вызовы)
